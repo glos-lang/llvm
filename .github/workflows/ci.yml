@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 env:
-  LLVM_VERSION: 23.1.2
+  LLVM_VERSION: 22.1.0
   LLVM_BASE_URL: https://github.com/c3lang/llvm-for-c3/releases/download
 
 jobs:
@@ -18,9 +18,9 @@ jobs:
 
       - name: Download LLVM
         run: |
-          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-linux-amd64.tar.xz" -o llvm.tar.xz
+          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-linux-amd64.tar.gz" -o llvm.tar.gz
           mkdir llvm
-          tar xf llvm.tar.xz -C llvm --strip-components=1
+          tar xf llvm.tar.gz -C llvm --strip-components=1
 
           cd llvm
           mkdir -p bin include/llvm
@@ -62,9 +62,9 @@ jobs:
 
       - name: Download LLVM
         run: |
-          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-linux-amd64-musl.tar.xz" -o llvm.tar.xz
+          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-linux-amd64-musl.tar.gz" -o llvm.tar.gz
           mkdir llvm
-          tar xf llvm.tar.xz -C llvm --strip-components=1
+          tar xf llvm.tar.gz -C llvm --strip-components=1
 
           cd llvm
           mkdir -p bin include/llvm
@@ -98,9 +98,9 @@ jobs:
 
       - name: Download LLVM
         run: |
-          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-darwin-aarch64.tar.xz" -o llvm.tar.xz
+          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-darwin-aarch64.tar.gz" -o llvm.tar.gz
           mkdir llvm
-          tar xf llvm.tar.xz -C llvm --strip-components=1
+          tar xf llvm.tar.gz -C llvm --strip-components=1
 
           cd llvm
           mkdir -p bin include/llvm
@@ -135,9 +135,9 @@ jobs:
       - name: Download LLVM
         shell: bash
         run: |
-          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-windows-amd64.tar.xz" -o llvm.tar.xz
+          curl -L "${LLVM_BASE_URL}/llvm_${LLVM_VERSION}/llvm-windows-amd64.tar.gz" -o llvm.tar.gz
           mkdir llvm
-          tar xf llvm.tar.xz -C llvm --strip-components=1
+          tar xf llvm.tar.gz -C llvm --strip-components=1
 
           cd llvm
           mkdir -p _bin _include/llvm
