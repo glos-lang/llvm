@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 env:
-  LLVM_VERSION: 22.1.0
+  LLVM_VERSION: 22.1.4
   LLVM_BASE_URL: https://github.com/c3lang/llvm-for-c3/releases/download
 
 jobs:
