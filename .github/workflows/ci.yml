@@ -6,7 +6,7 @@ permissions:
   contents: write
 
 env:
-  LLVM_VERSION: 22.1.4
+  LLVM_VERSION: 23.1.2
   LLVM_BASE_URL: https://github.com/c3lang/llvm-for-c3/releases/download
 
 jobs:
@@ -26,10 +26,13 @@ jobs:
           mkdir -p bin include/llvm
 
           mv usr/bin/llvm-config bin
+          mv usr/include/lld include
           mv usr/include/llvm-c include
+          mv usr/include/llvm/ADT include/llvm
           mv usr/include/llvm/Config include/llvm
+          mv usr/include/llvm/Support include/llvm
 
-          rm -rf usr lib/liblld* lib/*.so* lib/cmake lib/linux
+          rm -rf usr lib/*.so* lib/cmake lib/linux
 
       - name: Archive
         if: startsWith(github.ref, 'refs/tags/')
@@ -67,10 +70,13 @@ jobs:
           mkdir -p bin include/llvm
 
           mv usr/bin/llvm-config bin
+          mv usr/include/lld include
           mv usr/include/llvm-c include
+          mv usr/include/llvm/ADT include/llvm
           mv usr/include/llvm/Config include/llvm
+          mv usr/include/llvm/Support include/llvm
 
-          rm -rf usr lib/liblld* lib/*.so* lib/cmake lib/linux
+          rm -rf usr lib/*.so* lib/cmake lib/linux
 
       - name: Archive
         if: startsWith(github.ref, 'refs/tags/')
@@ -100,10 +106,13 @@ jobs:
           mkdir -p bin include/llvm
 
           mv usr/bin/llvm-config bin
+          mv usr/include/lld include
           mv usr/include/llvm-c include
+          mv usr/include/llvm/ADT include/llvm
           mv usr/include/llvm/Config include/llvm
+          mv usr/include/llvm/Support include/llvm
 
-          rm -rf usr lib/liblld* lib/cmake lib/darwin
+          rm -rf usr lib/cmake lib/darwin
 
       - name: Archive
         if: startsWith(github.ref, 'refs/tags/')
@@ -134,10 +143,13 @@ jobs:
           mkdir -p _bin _include/llvm
 
           mv bin/llvm-config _bin
+          mv include/lld _include
           mv include/llvm-c _include
+          mv include/llvm/ADT _include/llvm
           mv include/llvm/Config _include/llvm
+          mv include/llvm/Support _include/llvm
 
-          rm -rf bin include share lib/lld* lib/cmake lib/windows
+          rm -rf bin include share lib/cmake lib/windows
 
           mv _bin bin
           mv _include include
